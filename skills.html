@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Skills | Guna Portfolio</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+
+        /* =========================================
+           ROOT COLORS
+        ========================================= */
+
+        :root {
+
+            --primary-blue: #296AC9;
+            --primary-orange: #FF7F27;
+
+            --dark-blue: #0b1d38;
+            --dark: #111827;
+
+            --light: #f4f7fb;
+            --white: #ffffff;
+
+            --text-light: #d9e3f1;
+
+        }
+
+
+        /* =========================================
+           GLOBAL
+        ========================================= */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: "Poppins", sans-serif;
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            background: var(--light);
+
+            color: var(--dark);
+
+            overflow-x: hidden;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+
+        /* =========================================
+           TERMINAL LOADING SCREEN
+        ========================================= */
+
+        #loader {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #132c50,
+                    #071323 70%
+                );
+
+            z-index: 999999;
+
+            transition:
+                opacity 0.8s ease,
+                visibility 0.8s ease;
+
+        }
+
+
+        .terminal-loader {
+
+            width: min(550px, 90%);
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background:
+                rgba(5, 15, 30, 0.92);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 25px 80px
+                rgba(0,0,0,0.55);
+
+            animation:
+                terminalEnter 0.8s ease;
+
+        }
+
+
+        @keyframes terminalEnter {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    scale(0.95);
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        .terminal-header {
+
+            height: 52px;
+
+            padding:
+                0 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+
+        }
+
+
+        .terminal-header p {
+
+            color:
+                rgba(255,255,255,0.65);
+
+            font-size: 13px;
+
+            margin-left: 15px;
+
+        }
+
+
+        .terminal-dots {
+
+            display: flex;
+
+            gap: 7px;
+
+        }
+
+
+        .terminal-dots span {
+
+            width: 11px;
+
+            height: 11px;
+
+            border-radius: 50%;
+
+        }
+
+
+        .terminal-dots span:nth-child(1) {
+
+            background:
+                #ff5f57;
+
+        }
+
+
+        .terminal-dots span:nth-child(2) {
+
+            background:
+                #ffbd2e;
+
+        }
+
+
+        .terminal-dots span:nth-child(3) {
+
+            background:
+                #28c840;
+
+        }
+
+
+        .terminal-body {
+
+            padding:
+                35px 30px;
+
+            color:
+                #dbe8f8;
+
+            font-size: 14px;
+
+        }
+
+
+        .command {
+
+            margin-bottom: 25px;
+
+            color:
+                white;
+
+        }
+
+
+        .command span {
+
+            color:
+                var(--primary-orange);
+
+            font-weight: bold;
+
+            margin-right: 8px;
+
+        }
+
+
+        .loader-line {
+
+            opacity: 0;
+
+            transform:
+                translateX(-10px);
+
+            margin:
+                13px 0;
+
+            animation:
+                showLine 0.4s forwards;
+
+        }
+
+
+        .line1 {
+
+            animation-delay:
+                0.5s;
+
+        }
+
+
+        .line2 {
+
+            animation-delay:
+                1s;
+
+        }
+
+
+        .line3 {
+
+            animation-delay:
+                1.5s;
+
+        }
+
+
+        .line4 {
+
+            animation-delay:
+                2s;
+
+        }
+
+
+        @keyframes showLine {
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateX(0);
+
+            }
+
+        }
+
+
+        .check {
+
+            color:
+                var(--primary-orange);
+
+            font-weight: bold;
+
+            margin-right: 10px;
+
+        }
+
+
+        .terminal-progress {
+
+            width: 100%;
+
+            height: 5px;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin-top: 30px;
+
+        }
+
+
+        .terminal-progress-bar {
+
+            width: 0%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary-orange),
+                    var(--primary-blue)
+                );
+
+            animation:
+                terminalProgress
+                2.5s ease forwards;
+
+        }
+
+
+        @keyframes terminalProgress {
+
+            from {
+
+                width: 0%;
+
+            }
+
+            to {
+
+                width: 100%;
+
+            }
+
+        }
+
+
+        .welcome-message {
+
+            margin-top: 20px;
+
+            color:
+                var(--primary-orange);
+
+            opacity: 0;
+
+            animation:
+                welcomeShow
+                0.5s 2.5s forwards;
+
+        }
+
+
+        @keyframes welcomeShow {
+
+            to {
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        .cursor {
+
+            animation:
+                blink 0.8s infinite;
+
+            margin-left: 3px;
+
+        }
+
+
+        @keyframes blink {
+
+            50% {
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        @media(max-width: 500px) {
+
+            .terminal-body {
+
+                padding:
+                    28px 20px;
+
+                font-size:
+                    12px;
+
+            }
+
+
+            .terminal-header p {
+
+                font-size:
+                    11px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           MAIN CONTENT
+        ========================================= */
+
+        #content {
+
+            display: none;
+
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 20px 8%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            z-index: 9999;
+
+            transition:
+                0.4s ease;
+
+            background:
+                var(--primary-blue);
+
+        }
+
+
+        header.active {
+
+            background:
+                var(--primary-blue);
+
+            padding:
+                14px 8%;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.18);
+
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            color: white;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--primary-orange);
+
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav ul {
+
+            display: flex;
+
+            gap: 32px;
+
+            list-style: none;
+
+        }
+
+
+        nav ul li a {
+
+            position: relative;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        nav ul li a::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+
+            height: 2px;
+
+            left: 0;
+
+            bottom: -7px;
+
+            background:
+                var(--primary-orange);
+
+            transition:
+                0.3s;
+
+        }
+
+
+        nav ul li a:hover,
+        nav ul li a.current {
+
+            color:
+                var(--primary-orange);
+
+        }
+
+
+        nav ul li a:hover::after,
+        nav ul li a.current::after {
+
+            width: 100%;
+
+        }
+
+
+        /* =========================================
+           MOBILE MENU BUTTON
+        ========================================= */
+
+        .menu-toggle {
+
+            display: none;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+        }
+
+
+        nav.mobile-active {
+
+            display: flex;
+
+            position: absolute;
+
+            top: 70px;
+
+            left: 0;
+
+            width: 100%;
+
+            background:
+                var(--primary-blue);
+
+            padding: 20px 8%;
+
+        }
+
+
+        nav.mobile-active ul {
+
+            flex-direction: column;
+
+            gap: 18px;
+
+        }
+
+
+        /* =========================================
+           PAGE HERO
+        ========================================= */
+
+        .page-hero {
+
+            min-height: 100vh;
+
+            padding:
+                160px 8% 80px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+
+                linear-gradient(
+                    115deg,
+                    rgba(5,15,30,0.96),
+                    rgba(15,45,85,0.88)
+                );
+
+        }
+
+
+        .page-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            background:
+                rgba(41,106,201,0.20);
+
+            border-radius: 50%;
+
+            filter:
+                blur(100px);
+
+            top: -180px;
+
+            right: -100px;
+
+        }
+
+
+        .page-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            background:
+                rgba(255,127,39,0.12);
+
+            border-radius: 50%;
+
+            filter:
+                blur(100px);
+
+            bottom: -150px;
+
+            left: -100px;
+
+        }
+
+
+        .page-hero-container {
+
+            max-width: 1350px;
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 2;
+
+            color: white;
+
+        }
+
+
+        .page-tag {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color:
+                var(--primary-orange);
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .page-tag::before {
+
+            content: "";
+
+            width: 35px;
+
+            height: 2px;
+
+            background:
+                var(--primary-orange);
+
+        }
+
+
+        .page-hero h1 {
+
+            font-size:
+                clamp(38px, 5vw, 60px);
+
+            font-weight: 800;
+
+        }
+
+
+        .page-hero h1 span {
+
+            color:
+                var(--primary-orange);
+
+        }
+
+
+        .page-hero p {
+
+            margin-top: 16px;
+
+            max-width: 600px;
+
+            color: #c9d3e0;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================
+           SKILLS GRID
+        ========================================= */
+
+        .skills {
+
+            padding:
+                110px 8%;
+
+            background: white;
+
+        }
+
+
+        .skills-container {
+
+            max-width: 1250px;
+
+            margin: auto;
+
+        }
+
+
+        .skills-group {
+
+            margin-bottom: 70px;
+
+        }
+
+
+        .skills-group:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .skills-group-title {
+
+            font-size:
+                clamp(24px, 3vw, 32px);
+
+            font-weight: 700;
+
+            color:
+                var(--primary-blue);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .skills-group-line {
+
+            width: 60px;
+
+            height: 3px;
+
+            background:
+                var(--primary-orange);
+
+            margin-bottom: 36px;
+
+            border-radius: 3px;
+
+        }
+
+
+        .skills-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(150px, 1fr));
+
+            gap: 24px;
+
+        }
+
+
+        .skill-card {
+
+            background:
+                var(--light);
+
+            border-radius: 16px;
+
+            padding: 32px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 16px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.06);
+
+            border:
+                1px solid
+                rgba(0,0,0,0.04);
+
+            transition:
+                0.35s;
+
+        }
+
+
+        .skill-card:hover {
+
+            transform:
+                translateY(-10px);
+
+            box-shadow:
+                0 20px 45px
+                rgba(41,106,201,0.18);
+
+            border-color:
+                var(--primary-blue);
+
+        }
+
+
+        .skill-icon {
+
+            width: 70px;
+
+            height: 70px;
+
+            border-radius: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 34px;
+
+            background:
+                rgba(41,106,201,0.08);
+
+            color:
+                var(--primary-blue);
+
+            transition:
+                0.35s;
+
+        }
+
+
+        .skill-card:hover .skill-icon {
+
+            background:
+                var(--primary-blue);
+
+            color: white;
+
+            transform:
+                rotate(-8deg)
+                scale(1.05);
+
+        }
+
+
+        .skill-card:nth-child(even) .skill-icon {
+
+            background:
+                rgba(255,127,39,0.08);
+
+            color:
+                var(--primary-orange);
+
+        }
+
+
+        .skill-card:nth-child(even):hover .skill-icon {
+
+            background:
+                var(--primary-orange);
+
+            color: white;
+
+        }
+
+
+        .skill-name {
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            color:
+                var(--dark);
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            background:
+                #081221;
+
+            color:
+                rgba(255,255,255,0.7);
+
+            text-align: center;
+
+            padding:
+                28px 8%;
+
+            font-size: 14px;
+
+        }
+
+
+        footer span {
+
+            color:
+                var(--primary-orange);
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           SCROLL REVEAL
+        ========================================= */
+
+        .reveal,
+        .reveal-left,
+        .reveal-right {
+
+            opacity: 0;
+
+            transition:
+                opacity 0.9s ease,
+                transform 0.9s ease;
+
+        }
+
+
+        .reveal {
+
+            transform:
+                translateY(60px);
+
+        }
+
+
+        .reveal-left {
+
+            transform:
+                translateX(-70px);
+
+        }
+
+
+        .reveal-right {
+
+            transform:
+                translateX(70px);
+
+        }
+
+
+        .reveal.active,
+        .reveal-left.active,
+        .reveal-right.active {
+
+            opacity: 1;
+
+            transform:
+                translate(0,0);
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media(max-width:1100px) {
+
+            nav ul {
+
+                gap: 18px;
+
+            }
+
+        }
+
+
+        @media(max-width:900px) {
+
+
+            nav {
+
+                display: none;
+
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns:
+                    repeat(auto-fit, minmax(120px, 1fr));
+
+                gap: 18px;
+
+            }
+
+        }
+
+
+        @media(max-width:600px) {
+
+
+            header {
+
+                padding:
+                    18px 6%;
+
+            }
+
+
+            .page-hero {
+
+                padding:
+                    130px 6% 60px;
+
+            }
+
+
+            .skills {
+
+                padding:
+                    70px 6%;
+
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .skill-icon {
+
+                width: 60px;
+
+                height: 60px;
+
+                font-size: 26px;
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         LOADING SCREEN
+    ====================================== -->
+
+    <div id="loader">
+
+        <div class="terminal-loader">
+
+            <div class="terminal-header">
+
+                <div class="terminal-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <p>guna_skills</p>
+
+            </div>
+
+
+            <div class="terminal-body">
+
+                <p class="command">
+                    <span>$</span> loading skillset...
+                </p>
+
+
+                <div class="loader-line line1">
+                    <span class="check">✓</span>
+                    Loading frontend skills
+                </div>
+
+
+                <div class="loader-line line2">
+                    <span class="check">✓</span>
+                    Loading backend skills
+                </div>
+
+
+                <div class="loader-line line3">
+                    <span class="check">✓</span>
+                    Loading tools
+                </div>
+
+
+                <div class="loader-line line4">
+                    <span class="check">✓</span>
+                    System ready
+                </div>
+
+
+                <div class="terminal-progress">
+
+                    <div class="terminal-progress-bar"></div>
+
+                </div>
+
+
+                <p class="welcome-message">
+                    Here's what I work with<span class="cursor">|</span>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         WEBSITE CONTENT
+    ====================================== -->
+
+    <div id="content">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header id="header" class="active">
+
+
+            <a href="index.html"
+               class="logo">
+
+                GUNA<span>.S</span>
+
+            </a>
+
+
+            <nav id="navbar">
+
+
+                <ul>
+
+
+                    <li>
+
+                        <a href="index.html">
+
+                            HOME
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="about.html">
+
+                            ABOUT
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="skills.html"
+                           class="current">
+
+                            SKILLS
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="projects.html">
+
+                            PROJECTS
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="certificate.html">
+
+                            CERTIFICATES
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="education.html">
+
+                            EDUCATION
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            CONTACT
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+
+            </nav>
+
+
+            <div class="menu-toggle"
+                 id="menuToggle">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =====================================
+             PAGE HERO
+        ====================================== -->
+
+        <section class="page-hero">
+
+
+            <div class="page-hero-container">
+
+
+                <div class="page-tag">
+
+                    WHAT I KNOW
+
+                </div>
+
+
+                <h1>
+
+                    My Skills<span>.</span>
+
+                </h1>
+
+
+                <p>
+
+                    Technologies and tools I use to build
+                    modern, responsive and functional web
+                    experiences.
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             SKILLS GRID
+        ====================================== -->
+
+        <section class="skills">
+
+
+            <div class="skills-container">
+
+
+                <!-- FRONTEND -->
+
+                <div class="skills-group reveal">
+
+
+                    <div class="skills-group-title">Frontend</div>
+
+                    <div class="skills-group-line"></div>
+
+
+                    <div class="skills-grid">
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+
+                            <div class="skill-name">HTML5</div>
+
+                        </div>
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-css3-alt"></i>
+                            </div>
+
+                            <div class="skill-name">CSS3</div>
+
+                        </div>
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-js"></i>
+                            </div>
+
+                            <div class="skill-name">JavaScript</div>
+
+                        </div>
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-bootstrap"></i>
+                            </div>
+
+                            <div class="skill-name">Bootstrap</div>
+
+                        </div>
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-react"></i>
+                            </div>
+
+                            <div class="skill-name">React</div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BACKEND -->
+
+                <div class="skills-group reveal">
+
+
+    <div class="skills-group-title">Backend</div>
+
+    <div class="skills-group-line"></div>
+
+
+    <div class="skills-grid">
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-python"></i>
+            </div>
+
+            <div class="skill-name">Python</div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-java"></i>
+            </div>
+
+            <div class="skill-name">Java</div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-php"></i>
+            </div>
+
+            <div class="skill-name">PHP</div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <div class="skill-name">SQL</div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+                <!-- TOOLS -->
+
+                <div class="skills-group reveal">
+
+
+                    <div class="skills-group-title">Tools</div>
+
+                    <div class="skills-group-line"></div>
+
+
+                    <div class="skills-grid">
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-git-alt"></i>
+                            </div>
+
+                            <div class="skill-name">Git</div>
+
+                        </div>
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+
+                            <div class="skill-name">GitHub</div>
+
+                        </div>
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-figma"></i>
+                            </div>
+
+                            <div class="skill-name">Figma</div>
+
+                        </div>
+
+
+                        <div class="skill-card">
+
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+
+                            <div class="skill-name">VS Code</div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer>
+
+
+            <p>
+
+                © 2026
+
+                <span>
+
+                    Guna Senthil
+
+                </span>
+
+                | Personal Portfolio
+
+            </p>
+
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+
+        /* =====================================
+           LOADER
+        ====================================== */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+
+                setTimeout(function () {
+
+
+                    const loader =
+                        document.getElementById("loader");
+
+
+                    const content =
+                        document.getElementById("content");
+
+
+                    loader.style.opacity =
+                        "0";
+
+
+                    loader.style.transition =
+                        "opacity 0.8s ease";
+
+
+                    setTimeout(function () {
+
+
+                        loader.style.display =
+                            "none";
+
+
+                        content.style.display =
+                            "block";
+
+
+                    }, 800);
+
+
+                }, 2500);
+
+
+            }
+        );
+
+
+
+        /* =====================================
+           NAVBAR SCROLL EFFECT
+        ====================================== */
+
+        const header =
+            document.getElementById("header");
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+
+                if (
+                    window.scrollY > 70
+                ) {
+
+
+                    header.classList.add(
+                        "active"
+                    );
+
+
+                }
+
+                else {
+
+
+                    header.classList.remove(
+                        "active"
+                    );
+
+
+                }
+
+
+            }
+        );
+
+
+
+        /* =====================================
+           SCROLL REVEAL
+        ====================================== */
+
+        const revealElements =
+            document.querySelectorAll(
+
+                ".reveal, .reveal-left, .reveal-right"
+
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+
+                    entries.forEach(
+                        function (entry) {
+
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+
+                                entry.target.classList.add(
+                                    "active"
+                                );
+
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+
+                            }
+
+
+                        }
+                    );
+
+
+                },
+
+
+                {
+
+
+                    threshold: 0.1,
+
+
+                    rootMargin:
+                        "0px 0px -60px 0px"
+
+
+                }
+
+            );
+
+
+        revealElements.forEach(
+            function (element) {
+
+
+                observer.observe(
+                    element
+                );
+
+
+            }
+        );
+
+
+
+        /* =====================================
+           MOBILE MENU
+        ====================================== */
+
+        const menuToggle =
+            document.getElementById(
+                "menuToggle"
+            );
+
+
+        const navbar =
+            document.getElementById(
+                "navbar"
+            );
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+
+                navbar.classList.toggle(
+                    "mobile-active"
+                );
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
